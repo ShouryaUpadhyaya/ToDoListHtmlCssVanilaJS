@@ -1,0 +1,112 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: #fff;
+  font-family: sans-serif;
+}
+body {
+  background-color: #212121;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+h1 {
+  margin-top: 1em;
+}
+.tasks {
+  margin: 1em 2em;
+  width: 75vw;
+  min-height: 85vh;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  flex-direction: column;
+  background-color: #333333;
+  padding-top: 25px;
+  border-radius: 0.5em;
+}
+.tasks ol {
+  list-style: none;
+  counter-reset: myCounter;
+}
+input[type="checkbox"].task {
+  height: 1.5em;
+  width: 1.5em;
+}
+.hidden {
+  visibility: hidden;
+  width: 0;
+  height: 0;
+}
+.tasks li::before {
+  content: counter(myCounter) ". ";
+}
+.tasks li {
+  border: solid 1px #fff;
+  border-radius: 0.5em;
+  width: 65vw;
+  display: flex;
+  gap: 1em;
+  justify-content: space-around;
+  padding: 0.5em 0.5em;
+  align-items: center;
+  counter-increment: myCounter;
+  margin-bottom: 1em;
+}
+.tasks li select {
+  background-color: #212121;
+  color: #fff;
+}
+.timeInput {
+  width: 12%;
+}
+.tasks li taskInput {
+  background-color: aqua;
+}
+.inputText {
+  background-color: #333333;
+  color: #fff;
+  border: solid 0px #000;
+  width: 30%;
+}
+input[type="text"] {
+  background-color: transparent;
+  border: solid 0;
+}
+input[type="text"]:focus {
+  outline: 0;
+  border-bottom: solid 2px #fff;
+}
+.inputText:focus {
+  outline: 0;
+  border-bottom: solid 2px #fff;
+}
+
+#add {
+  width: 2.5em;
+  height: 2.5em;
+  background-color: #fff;
+  color: #000;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.remove {
+  height: 2em;
+  width: 2em;
+  padding: 0px 3px;
+  background-color: #fff;
+  color: #000;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 200;
+}
+#add:hover {
+  color: #fff;
+  background-color: #212121;
+}
+.dragged {
+  opacity: 0.5;
+}
