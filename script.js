@@ -1,35 +1,43 @@
-//add fuctionality top add new task
 let addTaskButtons = document.getElementsByClassName("add");
-const liTemplate = document.getElementById("tempLi");
+const mainTask = document.getElementById("mainTask");
+const subtaskTemplate = document.getElementById("templateSubtask");
 const list = document.getElementById("taskList");
 const removeTasklist = document.querySelectorAll(".remove");
-// console.log(removeTasklist);
 let addTaskArray = Array.from(addTaskButtons);
+let newaddButtonIndex = 0;
 addTaskArray.forEach((addTaskButton) => {
-  console.log(addTaskButton);
   addTaskButton.addEventListener("click", (e) => {
-    let tempLi = liTemplate.cloneNode(true);
-    tempLi.classList.remove("hidden");
-    console.log(e.target);
-    list.appendChild(tempLi);
+    addTaskList();
     checkForNewerAddButtons();
   });
 });
 function checkForNewerAddButtons() {
   let addTaskButtons = document.getElementsByClassName("add");
   let addTaskArray = Array.from(addTaskButtons);
+  let newaddButton = addTaskArray[newaddButtonIndex];
+  newaddButtonIndex = newaddButtonIndex + 1;
+  newaddButton.addEventListener("click", (e) => {
+    let li = e.target.parentNode;
+    addSubTask(li);
+  });
 }
 function addTaskList(addTaskButton) {
-  let tempLi = liTemplate.cloneNode(true);
+  let mainTaskDiv = mainTask.cloneNode(true);
+  let tempLi = mainTaskDiv.firstElementChild;
   tempLi.classList.remove("hidden");
-  console.log(addTaskButton.parentNode);
-  list.appendChild(tempLi);
+  list.appendChild(mainTaskDiv);
 }
 
-function deleteTask() {
-  let lastLi = ol.lastChild;
-  console.log();
-  list.removeChild(lastLi);
+function addSubTask(li) {
+  console.log(subtaskTemplate);
+  let mainTaskDiv = li.parentNode;
+  console.log(mainTaskDiv);
+  let subtask = subtaskTemplate.cloneNode(true);
+  subtask.classList.remove("hidden");
+  console.log(subtask);
+  // mainTaskDiv.appendChild(subtask);
+  // tempLi.classList.remove("hidden");
+  mainTaskDiv.appendChild(subtask);
 }
 list.addEventListener("click", (e) => {
   if (e.target.classList.contains("remove")) {
@@ -37,6 +45,7 @@ list.addEventListener("click", (e) => {
   }
 });
 // add subtasks
+// add event listner to new add button after addition of list
 // add drag and change positions
 // add a pomodoro at the bottom
 // add save progress to text

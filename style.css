@@ -15,6 +15,8 @@ body {
 }
 h1 {
   margin-top: 1em;
+  margin-bottom: 1em;
+  text-decoration: underline;
 }
 .tasks {
   margin: 1em 2em;
@@ -25,12 +27,18 @@ h1 {
   align-items: center;
   flex-direction: column;
   background-color: #333333;
+  box-shadow: 0px 0px 38px 4px rgba(0, 0, 0, 1),
+    inset 0px 0px 73px -9px rgba(0, 0, 0, 0.8);
   padding-top: 25px;
-  border-radius: 0.5em;
+  border-radius: 1.5em;
 }
 .tasks ol {
   list-style: none;
   counter-reset: myCounter;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 input[type="checkbox"].task {
   height: 1.5em;
@@ -41,11 +49,14 @@ input[type="checkbox"].task {
   width: 0;
   height: 0;
 }
-.tasks li::before {
+.mainTaskList::before {
   content: counter(myCounter) ". ";
 }
-.tasks li {
-  border: solid 1px #fff;
+.mainTaskList {
+  /* border: solid 1px #fff; */
+  /* box-shadow: 0px 10px 49px 18px rgba(0, 0, 0, 0.5); */
+  box-shadow: -11px 15px 13px 0px rgba(0, 0, 0, 0.35),
+    inset 13px -20px 43px -10px rgba(0, 0, 0, 0.25);
   border-radius: 0.5em;
   width: 65vw;
   display: flex;
@@ -53,17 +64,18 @@ input[type="checkbox"].task {
   justify-content: space-around;
   padding: 0.5em 0.5em;
   align-items: center;
+  flex-direction: row;
   counter-increment: myCounter;
   margin-bottom: 1em;
 }
-.tasks li select {
+select {
   background-color: #212121;
   color: #fff;
 }
 .timeInput {
   width: 12%;
 }
-.tasks li taskInput {
+.tasks .mainTaskList li taskInput {
   background-color: aqua;
 }
 .inputText {
@@ -84,16 +96,36 @@ input[type="text"]:focus {
   outline: 0;
   border-bottom: solid 2px #fff;
 }
-
-#add {
+.templateSubtask {
+  margin-left: 4em;
+  /* border: solid 1px #fff; */
+  border-radius: 0.5em;
+  width: 60vw;
+  display: flex;
+  gap: 1em;
+  justify-content: space-around;
+  padding: 0.5em 0.5em;
+  align-items: center;
+  flex-direction: row;
+  counter-increment: myCounter;
+  margin-bottom: 1em;
+}
+button {
   width: 2.5em;
   height: 2.5em;
-  background-color: #fff;
-  color: #000;
+  /* background-color: #fff; */
+  /* color: #000; */
+  background: none;
+  border: none;
+  box-shadow: none;
+  outline: none;
+  /* border: solid 1px #212121; */
+  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.2),
+    inset 0px 0px 10px 0px rgba(255, 255, 255, 0.1);
   border-radius: 5px;
   cursor: pointer;
 }
-.remove {
+/* .remove {
   height: 2em;
   width: 2em;
   padding: 0px 3px;
@@ -102,11 +134,20 @@ input[type="text"]:focus {
   border-radius: 5px;
   cursor: pointer;
   font-weight: 200;
+} */
+.collaspe {
+  position: absolute;
+  margin-left: 70vw;
+  font-size: 1.5em;
 }
-#add:hover {
+button:hover {
   color: #fff;
-  background-color: #212121;
+  background-color: #000000;
 }
 .dragged {
   opacity: 0.5;
+}
+.mainTasks {
+  display: flex;
+  flex-direction: column;
 }

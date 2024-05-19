@@ -22,7 +22,39 @@
         <!-- <button class="remove" id="remove">remove</button> -->
       </div>
     </div>
-    <li draggable="true" id="tempLi" class="hidden">
+    <div class="mainTask" id="mainTask">
+      <li draggable="true" id="tempLi" class="mainTaskList hidden">
+        <input type="checkbox" class="task" />
+        <input type="text" name="" class="inputText" id="" value="" />
+        <select name="completion" id="t1">
+          <option value="select">select</option>
+          <option value="Hard">Hard</option>
+          <option value="Medium">Medium</option>
+          <option value="Easy">Easy</option>
+        </select>
+        <label for="from">from</label>
+        <input
+          type="text"
+          name="from"
+          id=""
+          class="timeInput"
+          placeholder="eg: 18:00"
+        />
+        <label for="to">to</label
+        ><input
+          type="text"
+          name="from"
+          id=""
+          class="timeInput"
+          placeholder="eg: 18:30"
+        />
+        <button class="remove" value="-">del</button>
+        <button class="add" value="+">add</button>
+        <div class="collaspe"><i class="fa-regular fa-square-minus"></i></div>
+        <ul></ul>
+      </li>
+    </div>
+    <li draggable="true" id="templateSubtask" class="templateSubtask hidden">
       <input type="checkbox" class="task" />
       <input type="text" name="" class="inputText" id="" value="" />
       <select name="completion" id="t1">
@@ -48,7 +80,6 @@
         placeholder="eg: 18:30"
       />
       <button class="remove" value="-">del</button>
-      <button class="add" value="+">add</button>
     </li>
   </body>
   <script src="script.js"></script>
